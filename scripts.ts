@@ -1,83 +1,83 @@
-// // const animation = document.getElementById('animatsion') as HTMLDivElement | null;
-// // const siteContent=document.getElementById('siteContent') as HTMLDivElement
-// // const form = document.getElementById('form') as HTMLFormElement
-// const profilName=document.querySelector('.Profil_name');
-// const profilEmail=document.querySelector('.Profil_email');
-// const profilTelefon=document.querySelector('.Profil_telefon');
+const animation = document.getElementById('animatsion') as HTMLDivElement | null;
+const siteContent=document.getElementById('siteContent') as HTMLDivElement
+const form = document.getElementById('form') as HTMLFormElement
+const profilName=document.querySelector('.Profil_name');
+const profilEmail=document.querySelector('.Profil_email');
+const profilTelefon=document.querySelector('.Profil_telefon');
 
 import { BlockLike, flattenDiagnosticMessageText, forEachChild, isTemplateExpression, PollingWatchKind } from "./node_modules/typescript/lib/typescript";
 
-// // if (animation) {
-// //   setTimeout(() => {
-// //         animation.style.display = 'none';
-// //     document.body.style.backgroundColor='white'
-// //     setTimeout(()=>{
-// //   form.style.display='flex'
-// //   document.body.style.backgroundColor='#2774AE'
+if (animation) {
+  setTimeout(() => {
+        animation.style.display = 'none';
+    document.body.style.backgroundColor='white'
+    setTimeout(()=>{
+  form.style.display='flex'
+  document.body.style.backgroundColor='#2774AE'
   
-// // },10)
-// //   },3000);
-// // }else{
-// //   console.log('Элемент не найден')
-// // }
-// // form.addEventListener('submit', (event) => {
-// //   event.preventDefault()
+},10)
+  },3000);
+}else{
+  console.log('Элемент не найден')
+}
+form.addEventListener('submit', (event) => {
+  event.preventDefault()
 
-// //   let isValid=true
-// //   let name = document.getElementById('name') as HTMLInputElement
-// //   let email = document.getElementById('email') as HTMLInputElement
-// //   let password = document.getElementById("password") as HTMLInputElement
-// //   let telefon = document.getElementById("telefon") as HTMLInputElement
-// //   const clearError = () => {
-// //     document.querySelectorAll('.error-text').forEach(error => error.remove())
-// //   }
-// //   const ErrorInfo = (input: HTMLElement, message: string) => {
-// //     let ErrorEL = document.createElement('div')
-// //     ErrorEL.className = 'error-text'
-// //     ErrorEL.textContent = message
-// //     ErrorEL.style.fontSize = '14px'
-// //     ErrorEL.style.color = 'red'
-// //     input.parentElement?.appendChild(ErrorEL)
-// //   }
-// //   clearError()
-// //   if (!name.value.trim()){
-// //     ErrorInfo(name, 'Введите имя')
-// //     isValid=false
-// //   }
-// //       if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){
-// //         ErrorInfo(email,'Введите коректный email')
-// //         isValid=false
-// //       }
-// //         if(password.value.trim().length <6){
-// //           ErrorInfo(password,'Пароль должень быть не мене 6 символов')
-// //           isValid=false
-// //         }
-// //           if(telefon.value.trim()==='' && !/^[0,9]{10,15}/.test(telefon.value.trim())){
-// //             ErrorInfo(telefon,'Заполните поле вода')
-// //             isValid=false
-// //           }
-// //           function newSlider(){
-// //             if(name.value.trim().length>0 && email.value.trim().length>0 && password.value.trim().length>6 && telefon.value.trim().length>0){
-// //               setTimeout(()=>{
-// //                   form.style.display='none';
-// //                   document.body.style.backgroundColor='white'
-// //                   siteContent.style.display='block'
-//                 },50)
-//             }
-//           }
-//           newSlider()
-//                         if(isValid){
-//                     console.log(`Форма успешна отправлена
-//                         Имя:${name.value}
-//                         Email:${email.value}
-//                         Пароль:${password.value}
-//                         Телефон:${telefon.value}`)
-//                 }
-//             name.value=''
-//             email.value=''
-//             password.value=''
-//             telefon.value=''
-// })
+  let isValid=true
+  let name = document.getElementById('name') as HTMLInputElement
+  let email = document.getElementById('email') as HTMLInputElement
+  let password = document.getElementById("password") as HTMLInputElement
+  let telefon = document.getElementById("telefon") as HTMLInputElement
+  const clearError = () => {
+    document.querySelectorAll('.error-text').forEach(error => error.remove())
+  }
+  const ErrorInfo = (input: HTMLElement, message: string) => {
+    let ErrorEL = document.createElement('div')
+    ErrorEL.className = 'error-text'
+    ErrorEL.textContent = message
+    ErrorEL.style.fontSize = '14px'
+    ErrorEL.style.color = 'red'
+    input.parentElement?.appendChild(ErrorEL)
+  }
+  clearError()
+  if (!name.value.trim()){
+    ErrorInfo(name, 'Введите имя')
+    isValid=false
+  }
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){
+        ErrorInfo(email,'Введите коректный email')
+        isValid=false
+      }
+        if(password.value.trim().length <6){
+          ErrorInfo(password,'Пароль должень быть не мене 6 символов')
+          isValid=false
+        }
+          if(telefon.value.trim()==='' && !/^[0,9]{10,15}/.test(telefon.value.trim())){
+            ErrorInfo(telefon,'Заполните поле вода')
+            isValid=false
+          }
+          function newSlider(){
+            if(name.value.trim().length>0 && email.value.trim().length>0 && password.value.trim().length>6 && telefon.value.trim().length>0){
+              setTimeout(()=>{
+                  form.style.display='none';
+                  document.body.style.backgroundColor='white'
+                  siteContent.style.display='block'
+                },50)
+            }
+          }
+          newSlider()
+                        if(isValid){
+                    console.log(`Форма успешна отправлена
+                        Имя:${name.value}
+                        Email:${email.value}
+                        Пароль:${password.value}
+                        Телефон:${telefon.value}`)
+                }
+            name.value=''
+            email.value=''
+            password.value=''
+            telefon.value=''
+})
 
 
 // бургер меню

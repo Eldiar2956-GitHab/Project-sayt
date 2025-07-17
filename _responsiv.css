@@ -1,0 +1,19 @@
+/* @media(max-width:1600px){
+      #srcol-left,
+  #srcol-left-acsia,
+  #srcol-rigt,
+  #srcol-rigt-acsia  {
+    display:none!important;
+  } */
+@media (min-width: 1024px) {
+  #srcol-rigt{
+    display: none !important;
+  }
+  #scrol-rigt-acsia {
+    display: none !important;
+  }
+  #rigt-otzyv{
+    display: none !important;
+  }
+}
+

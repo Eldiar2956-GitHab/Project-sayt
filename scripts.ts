@@ -1,11 +1,13 @@
 const animation = document.getElementById('animatsion') as HTMLDivElement | null;
 const siteContent=document.getElementById('siteContent') as HTMLDivElement
 const form = document.getElementById('form') as HTMLFormElement
+ const glavBoxs=document.querySelector('.glav_boxs') as HTMLDivElement;
+ glavBoxs.classList.add('active')
+
 const profilName=document.querySelector('.Profil_name');
 const profilEmail=document.querySelector('.Profil_email');
 const profilTelefon=document.querySelector('.Profil_telefon');
 
-import { BlockLike, flattenDiagnosticMessageText, forEachChild, isTemplateExpression, PollingWatchKind } from "./node_modules/typescript/lib/typescript";
 
 if (animation) {
   setTimeout(() => {
@@ -14,15 +16,13 @@ if (animation) {
     setTimeout(()=>{
   form.style.display='flex'
   document.body.style.backgroundColor='#2774AE'
-  
 },10)
   },3000);
 }else{
-  console.log('Элемент не найден')
+
 }
 form.addEventListener('submit', (event) => {
   event.preventDefault()
-
   let isValid=true
   let name = document.getElementById('name') as HTMLInputElement
   let email = document.getElementById('email') as HTMLInputElement
@@ -72,12 +72,26 @@ form.addEventListener('submit', (event) => {
                         Email:${email.value}
                         Пароль:${password.value}
                         Телефон:${telefon.value}`)
+                        const username=document.getElementById('user-name') as HTMLSpanElement;
+                        const useremail=document.getElementById('user-email') as HTMLSpanElement;
+                        const usertelefon=document.getElementById('user-phone') as HTMLSpanElement;
+                        useremail.appendChild(email)
+                        username.appendChild(name)
+                        usertelefon.appendChild(telefon)
+                        username.textContent=`${name.value}`
+                        useremail.textContent=`${email.value}`
+                        usertelefon.textContent=`${telefon.value}`
                 }
             name.value=''
             email.value=''
             password.value=''
             telefon.value=''
+            glavBoxs.classList.remove('active')
+            
 })
+
+
+
 
 
 // бургер меню
@@ -209,7 +223,11 @@ document.addEventListener('DOMContentLoaded', () => {
 const newSayt=document.getElementById('new_sayt') as HTMLHeadElement;
   const infoTovar = document.getElementById('contaynPhone') as HTMLHeadElement;
   //нужен в дальнейшом 
-  const glavBoxs=document.querySelector('.glav_boxs') as HTMLDivElement;
+ 
+
+
+
+
 // newSayt.addEventListener('click', () => {
 //   glavBoxs.classList.add('active');
 //   proverca=false
@@ -217,6 +235,10 @@ const newSayt=document.getElementById('new_sayt') as HTMLHeadElement;
 //     infoTovar.classList.add('active');
 //   }, 500);
 // });
+
+
+
+
   newSayt.addEventListener('click', () => {
   glavBoxs.classList.add('active');
   setTimeout(() => {
@@ -236,9 +258,13 @@ back.addEventListener('click',()=>{
   glavBoxs.classList.remove('active')
   }
 })
+
+
+
 // Go.addEventListener('click',()=>{
 //   window.history.forward()
 // })
+
 
 
 const boxsProfil=document.querySelector('.Profil');
@@ -261,10 +287,7 @@ const PhoneBoxs=document.querySelector('.Phone_Boxs') as HTMLDivElement;
 const Phone=document.querySelector('.Phone') as HTMLAnchorElement;
 //История прокрутки перед назад
 window.onpopstate = function(event) {
-    // ВНИМАНИЕ: это событие срабатывает только при навигации НАЗАД/ВПЕРЕД,
-    // а не при вызове pushState()
-    // console.log('Событие popstate сработало!');
-    // console.log('Состояние:', event.state);
+
 
     if(window.location.href==='http://127.0.0.1:5501/index.html'){
       shop?.classList.remove('active')
@@ -506,7 +529,7 @@ boxsPust()
 
 
 const tovarPhoneElement=document.querySelectorAll<HTMLDivElement>('.product-card')
-console.log(tovarPhoneElement)
+
 
 const phoneCarzinca = document.querySelectorAll<HTMLButtonElement>('.phone');
 const boxsPhoneCarzinca = document.querySelector<HTMLDivElement>('.empty-message');
@@ -552,27 +575,7 @@ phoneCarzinca.forEach(button => {
                 imgAlt: productImageAlt,
                 count:0
             };
-            // if (cardEl2) {
-            // const nameElement = cardEl2.querySelector('h2');
-            // const imgElement = cardEl2.querySelector('img');
-            // const priceElement = cardEl2.querySelector('span');
-
-            // const productName = nameElement ? nameElement.textContent : 'Название не найдено';
-            // const productImageSrc = imgElement ? imgElement.src : '';
-            // const productImageAlt = imgElement ? imgElement.alt : 'Изображение товара';
-
-            // let productPrice: number;
-            // if (priceElement && priceElement.textContent) {
-            //     const priceText = priceElement.textContent.replace(/[^\d.,]/g, '').replace(',', '.');
-            //     productPrice = parseFloat(priceText);
-            //     if (isNaN(productPrice)) {
-            //         productPrice = 0;
-            //         console.warn(`Не удалось преобразовать цену "${priceElement.textContent}" в число. Установлено 0.`);
-            //     }
-            // } else {
-            //     productPrice = 0;
-            // }
-
+          
 
             carzincaBoxs.push(newPhone);
             if (boxsPhoneCarzinca) {
@@ -674,7 +677,7 @@ function updateTotalSum() {
   }
 }
 const sena=document.querySelectorAll('#prejniy-sena');
-console.log(sena)
+
 
 const deleteButtons = document.querySelectorAll<HTMLButtonElement>('.delact');
 
@@ -701,5 +704,4 @@ updateTotalSum();
 
 const Summ=document.querySelector<HTMLParagraphElement>('.Summa');
 let SummaPhone=Summ? Summ.textContent='Корзина пока что пуста 0.00' : 'Сумма не написано'
-
 

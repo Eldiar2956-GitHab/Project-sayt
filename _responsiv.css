@@ -16,4 +16,14 @@
     display: none !important;
   }
 }
-
+@media(max-width:1024px){
+  #srcol-rigt{
+    display: block !important;
+  }
+  #scrol-rigt-acsia {
+    display: block !important;
+  }
+  #rigt-otzyv{
+    display: block !important;
+  }
+}
